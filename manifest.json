@@ -1,0 +1,28 @@
+{
+    // 插件名称
+    "name": "Hello Extensions",
+    // 插件的描述
+    "description" : "Base Level Extension",
+    // 插件的版本
+    "version": "1.0",
+    // 配置插件程序的版本号，主流版本是2，最新是3
+    "manifest_version": 2,
+        // 新增popup弹框
+        "browser_action": {
+            "default_popup": "popup.html",
+            "default_icon": "d.png"
+          },
+    "background": {
+        // "page": "background.html",
+        "scripts": ["background.js"],
+        "persistent": true
+    },
+    "content_scripts": [
+        {
+          // 必需。指定此内容脚本将被注入到哪些页面。
+          "matches": ["https://h5.360buyimg.com/jcap/html/app-captcha-v2.html"],
+          //"css": ["myStyles.css"],
+          "js": ["contentScript.js"]
+        }
+      ]
+}
